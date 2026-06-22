@@ -239,6 +239,15 @@ function themeFields($layout)
         _t('自定义摘要，留空则自动截取')
     );
     $layout->addItem($excerpt);
+
+    $sticky = new \Typecho\Widget\Helper\Form\Element\Radio(
+        'sticky',
+        array('1' => _t('是'), '0' => _t('否')),
+        '0',
+        _t('置顶文章'),
+        _t('是否将此文章置顶显示')
+    );
+    $layout->addItem($sticky);
 }
 
 function getThemeOptions()

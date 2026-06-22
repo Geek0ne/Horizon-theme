@@ -18,7 +18,7 @@ $this->need('header.php');
 
         <div class="post-grid">
             <?php while ($this->next()): ?>
-            <article class="post-card">
+            <article class="post-card<?php echo $this->fields->sticky == '1' ? ' sticky' : ''; ?>">
                 <?php
                 $coverImage = $this->fields->coverImage;
                 if (!empty($coverImage)):
