@@ -1,6 +1,15 @@
 (function () {
     'use strict';
 
+    /* ========== Page Loader ========== */
+    window.addEventListener('load', function () {
+        var loader = document.getElementById('pageLoader');
+        if (loader) {
+            loader.classList.add('loaded');
+            setTimeout(function () { loader.remove(); }, 500);
+        }
+    });
+
     var html = document.documentElement;
     var savedTheme = localStorage.getItem('horizon-theme');
 

@@ -77,6 +77,9 @@ if ($this->is('post') || $this->is('page')) {
     <?php endif; ?>
 </head>
 <body>
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-spinner"></div>
+    </div>
     <div class="horizon-app">
         <header class="horizon-header">
             <div class="container">
