@@ -180,6 +180,27 @@ function themeConfig($form)
     );
     $form->addInput($emailAddr);
 
+    $friendLinks = new \Typecho\Widget\Helper\Form\Element\Textarea(
+        'friendLinks',
+        null,
+        '',
+        _t('友情链接'),
+        _t('JSON 格式，示例：[{"name":"站点名","url":"https://...","avatar":"https://...","desc":"描述"}]')
+    );
+    $form->addInput($friendLinks);
+
+    $language = new \Typecho\Widget\Helper\Form\Element\Select(
+        'language',
+        array(
+            'zh_CN' => _t('简体中文'),
+            'en_US' => _t('English'),
+        ),
+        'zh_CN',
+        _t('界面语言'),
+        _t('选择主题界面语言（需对应语言文件）')
+    );
+    $form->addInput($language);
+
     $primaryColor = new \Typecho\Widget\Helper\Form\Element\Text(
         'primaryColor',
         null,
@@ -244,6 +265,8 @@ function getThemeOptions()
         'weiboUrl' => '',
         'twitterUrl' => '',
         'emailAddr' => '',
+        'friendLinks' => '',
+        'language' => 'zh_CN',
         'primaryColor' => '#6366f1',
         'customCSS' => '',
     );
@@ -251,6 +274,18 @@ function getThemeOptions()
         return array_merge($defaults, $options);
     }
     return $defaults;
+}
+
+function hz_t($key, $fallback = '')
+{
+    static $lang = null;
+    if ($lang === null) {
+        $options = getThemeOptions();
+        $locale = $options['language'] ?? 'zh_CN';
+        $langFile = __DIR__ . '/languages/' . $locale . '.php';
+        $lang = file_exists($langFile) ? include $langFile : array();
+    }
+    return isset($lang[$key]) ? $lang[$key] : ($fallback ?: $key);
 }
 
 function renderBreadcrumb($archive)
