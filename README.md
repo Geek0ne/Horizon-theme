@@ -228,12 +228,12 @@ typecho/
 
 ### ⚪ 代码质量
 
-- [ ] 函数添加 PHPDoc 文档注释
-- [ ] 添加 PHP 8.0+ 类型声明
+- [x] ~~函数添加 PHPDoc 文档注释~~
+- [x] ~~添加 PHP 8.0+ 类型声明~~
 - [ ] `themeConfig()` 按功能分组拆分
-- [ ] `getReadTime()` 改为同时计算中英文
-- [ ] `sidebar.php` 决定引入或删除
-- [ ] `getRelatedPosts()` 使用 Typecho 路由生成 permalink
+- [x] ~~`getReadTime()` 改为同时计算中英文~~
+- [x] ~~`sidebar.php` 决定引入或删除~~
+- [x] ~~`getRelatedPosts()` 使用 Typecho 路由生成 permalink~~
 - [x] ~~`links.php` JSON 解析添加错误处理~~
 
 ### ⚫ 测试与文档
