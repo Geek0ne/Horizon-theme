@@ -1,223 +1,136 @@
 <?php
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 
-function themeConfig($form)
+/**
+ * 主题配置：基础设置
+ */
+function themeConfigBasic($form): void
 {
-    $logo = new \Typecho\Widget\Helper\Form\Element\Text(
-        'logo',
-        null,
-        null,
-        _t('站点 Logo'),
-        _t('输入 Logo 图片 URL，留空则显示站点标题')
-    );
-    $form->addInput($logo);
-
-    $favicon = new \Typecho\Widget\Helper\Form\Element\Text(
-        'favicon',
-        null,
-        null,
-        _t('Favicon'),
-        _t('输入 Favicon URL')
-    );
-    $form->addInput($favicon);
-
-    $showToc = new \Typecho\Widget\Helper\Form\Element\Radio(
-        'showToc',
-        array('1' => _t('显示'), '0' => _t('隐藏')),
-        '1',
-        _t('文章目录'),
-        _t('文章页面是否显示侧边目录')
-    );
-    $form->addInput($showToc);
-
-    $showCodeHighlight = new \Typecho\Widget\Helper\Form\Element\Radio(
-        'showCodeHighlight',
-        array('1' => _t('启用'), '0' => _t('禁用')),
-        '1',
-        _t('代码高亮'),
-        _t('是否启用代码高亮')
-    );
-    $form->addInput($showCodeHighlight);
-
-    $codeTheme = new \Typecho\Widget\Helper\Form\Element\Select(
-        'codeTheme',
-        array(
-            'github-dark' => _t('GitHub Dark'),
-            'github' => _t('GitHub Light'),
-            'monokai' => _t('Monokai'),
-            'dracula' => _t('Dracula'),
-            'nord' => _t('Nord'),
-        ),
-        'github-dark',
-        _t('代码主题'),
-        _t('选择代码高亮主题')
-    );
-    $form->addInput($codeTheme);
-
-    $codeStyle = new \Typecho\Widget\Helper\Form\Element\Select(
-        'codeStyle',
-        array(
-            'dark' => _t('暗色 (Dark)'),
-            'light' => _t('亮色 (Light)'),
-        ),
-        'dark',
-        _t('代码框风格'),
-        _t('选择代码框的明暗风格')
-    );
-    $form->addInput($codeStyle);
-
-    $showWordCount = new \Typecho\Widget\Helper\Form\Element\Radio(
-        'showWordCount',
-        array('1' => _t('显示'), '0' => _t('隐藏')),
-        '1',
-        _t('字数统计'),
-        _t('文章页是否显示字数统计')
-    );
-    $form->addInput($showWordCount);
-
-    $showReadTime = new \Typecho\Widget\Helper\Form\Element\Radio(
-        'showReadTime',
-        array('1' => _t('显示'), '0' => _t('隐藏')),
-        '1',
-        _t('阅读时间'),
-        _t('文章页是否显示预估阅读时间')
-    );
-    $form->addInput($showReadTime);
-
-    $showAuthor = new \Typecho\Widget\Helper\Form\Element\Radio(
-        'showAuthor',
-        array('1' => _t('显示'), '0' => _t('隐藏')),
-        '1',
-        _t('作者信息'),
-        _t('文章页是否显示作者卡片')
-    );
-    $form->addInput($showAuthor);
-
-    $showShareButtons = new \Typecho\Widget\Helper\Form\Element\Radio(
-        'showShareButtons',
-        array('1' => _t('显示'), '0' => _t('隐藏')),
-        '1',
-        _t('分享按钮'),
-        _t('文章页是否显示分享按钮')
-    );
-    $form->addInput($showShareButtons);
-
-    $darkMode = new \Typecho\Widget\Helper\Form\Element\Select(
+    $form->addInput(new \Typecho\Widget\Helper\Form\Element\Text(
+        'logo', null, null, _t('站点 Logo'), _t('输入 Logo 图片 URL，留空则显示站点标题')
+    ));
+    $form->addInput(new \Typecho\Widget\Helper\Form\Element\Text(
+        'favicon', null, null, _t('Favicon'), _t('输入 Favicon URL')
+    ));
+    $form->addInput(new \Typecho\Widget\Helper\Form\Element\Select(
         'darkMode',
-        array(
-            'auto' => _t('跟随系统'),
-            'light' => _t('亮色'),
-            'dark' => _t('暗色'),
-        ),
-        'auto',
-        _t('暗色模式'),
-        _t('默认颜色模式')
-    );
-    $form->addInput($darkMode);
+        array('auto' => _t('跟随系统'), 'light' => _t('亮色'), 'dark' => _t('暗色')),
+        'auto', _t('暗色模式'), _t('默认颜色模式')
+    ));
+    $form->addInput(new \Typecho\Widget\Helper\Form\Element\Text(
+        'primaryColor', null, '#6366f1', _t('主题色'), _t('输入主题色 HEX 值')
+    ));
+}
 
-    $showCategories = new \Typecho\Widget\Helper\Form\Element\Radio(
-        'showCategories',
-        array('1' => _t('开启'), '0' => _t('关闭')),
-        '1',
-        _t('分类导航页'),
-        _t('顶部导航栏是否显示分类页面')
-    );
-    $form->addInput($showCategories);
+/**
+ * 主题配置：显示设置
+ */
+function themeConfigDisplay($form): void
+{
+    $form->addInput(new \Typecho\Widget\Helper\Form\Element\Radio(
+        'showToc', array('1' => _t('显示'), '0' => _t('隐藏')), '1', _t('文章目录'), _t('文章页面是否显示侧边目录')
+    ));
+    $form->addInput(new \Typecho\Widget\Helper\Form\Element\Radio(
+        'showWordCount', array('1' => _t('显示'), '0' => _t('隐藏')), '1', _t('字数统计'), _t('文章页是否显示字数统计')
+    ));
+    $form->addInput(new \Typecho\Widget\Helper\Form\Element\Radio(
+        'showReadTime', array('1' => _t('显示'), '0' => _t('隐藏')), '1', _t('阅读时间'), _t('文章页是否显示预估阅读时间')
+    ));
+    $form->addInput(new \Typecho\Widget\Helper\Form\Element\Radio(
+        'showAuthor', array('1' => _t('显示'), '0' => _t('隐藏')), '1', _t('作者信息'), _t('文章页是否显示作者卡片')
+    ));
+    $form->addInput(new \Typecho\Widget\Helper\Form\Element\Radio(
+        'showShareButtons', array('1' => _t('显示'), '0' => _t('隐藏')), '1', _t('分享按钮'), _t('文章页是否显示分享按钮')
+    ));
+    $form->addInput(new \Typecho\Widget\Helper\Form\Element\Radio(
+        'showCopyright', array('1' => _t('开启'), '0' => _t('关闭')), '0', _t('版权声明'), _t('文章底部是否显示 CC 版权声明')
+    ));
+}
 
-    $showTags = new \Typecho\Widget\Helper\Form\Element\Radio(
-        'showTags',
-        array('1' => _t('开启'), '0' => _t('关闭')),
-        '1',
-        _t('标签导航页'),
-        _t('顶部导航栏是否显示标签页面')
-    );
-    $form->addInput($showTags);
+/**
+ * 主题配置：代码高亮
+ */
+function themeConfigCode($form): void
+{
+    $form->addInput(new \Typecho\Widget\Helper\Form\Element\Radio(
+        'showCodeHighlight', array('1' => _t('启用'), '0' => _t('禁用')), '1', _t('代码高亮'), _t('是否启用代码高亮')
+    ));
+    $form->addInput(new \Typecho\Widget\Helper\Form\Element\Select(
+        'codeTheme',
+        array('github-dark' => _t('GitHub Dark'), 'github' => _t('GitHub Light'), 'monokai' => _t('Monokai'), 'dracula' => _t('Dracula'), 'nord' => _t('Nord')),
+        'github-dark', _t('代码主题'), _t('选择代码高亮主题')
+    ));
+    $form->addInput(new \Typecho\Widget\Helper\Form\Element\Select(
+        'codeStyle', array('dark' => _t('暗色 (Dark)'), 'light' => _t('亮色 (Light)')), 'dark', _t('代码框风格'), _t('选择代码框的明暗风格')
+    ));
+}
 
-    $showArchives = new \Typecho\Widget\Helper\Form\Element\Radio(
-        'showArchives',
-        array('1' => _t('开启'), '0' => _t('关闭')),
-        '1',
-        _t('归档导航页'),
-        _t('顶部导航栏是否显示归档页面')
-    );
-    $form->addInput($showArchives);
+/**
+ * 主题配置：导航设置
+ */
+function themeConfigNav($form): void
+{
+    $form->addInput(new \Typecho\Widget\Helper\Form\Element\Radio(
+        'showCategories', array('1' => _t('开启'), '0' => _t('关闭')), '1', _t('分类导航页'), _t('顶部导航栏是否显示分类页面')
+    ));
+    $form->addInput(new \Typecho\Widget\Helper\Form\Element\Radio(
+        'showTags', array('1' => _t('开启'), '0' => _t('关闭')), '1', _t('标签导航页'), _t('顶部导航栏是否显示标签页面')
+    ));
+    $form->addInput(new \Typecho\Widget\Helper\Form\Element\Radio(
+        'showArchives', array('1' => _t('开启'), '0' => _t('关闭')), '1', _t('归档导航页'), _t('顶部导航栏是否显示归档页面')
+    ));
+    $form->addInput(new \Typecho\Widget\Helper\Form\Element\Radio(
+        'loadGoogleFonts', array('1' => _t('开启'), '0' => _t('关闭')), '1', _t('Google Fonts'), _t('是否加载 Google Fonts（关闭可提升国内访问速度）')
+    ));
+}
 
-    $loadGoogleFonts = new \Typecho\Widget\Helper\Form\Element\Radio(
-        'loadGoogleFonts',
-        array('1' => _t('开启'), '0' => _t('关闭')),
-        '1',
-        _t('Google Fonts'),
-        _t('是否加载 Google Fonts（关闭可提升国内访问速度）')
-    );
-    $form->addInput($loadGoogleFonts);
-
-    $showCopyright = new \Typecho\Widget\Helper\Form\Element\Radio(
-        'showCopyright',
-        array('1' => _t('开启'), '0' => _t('关闭')),
-        '0',
-        _t('版权声明'),
-        _t('文章底部是否显示 CC 版权声明')
-    );
-    $form->addInput($showCopyright);
-
-    $githubUrl = new \Typecho\Widget\Helper\Form\Element\Text(
+/**
+ * 主题配置：社交链接
+ */
+function themeConfigSocial($form): void
+{
+    $form->addInput(new \Typecho\Widget\Helper\Form\Element\Text(
         'githubUrl', null, '', _t('GitHub 地址'), _t('输入 GitHub 个人主页 URL')
-    );
-    $form->addInput($githubUrl);
-
-    $weiboUrl = new \Typecho\Widget\Helper\Form\Element\Text(
+    ));
+    $form->addInput(new \Typecho\Widget\Helper\Form\Element\Text(
         'weiboUrl', null, '', _t('微博地址'), _t('输入微博个人主页 URL')
-    );
-    $form->addInput($weiboUrl);
-
-    $twitterUrl = new \Typecho\Widget\Helper\Form\Element\Text(
+    ));
+    $form->addInput(new \Typecho\Widget\Helper\Form\Element\Text(
         'twitterUrl', null, '', _t('Twitter 地址'), _t('输入 Twitter 个人主页 URL')
-    );
-    $form->addInput($twitterUrl);
-
-    $emailAddr = new \Typecho\Widget\Helper\Form\Element\Text(
+    ));
+    $form->addInput(new \Typecho\Widget\Helper\Form\Element\Text(
         'emailAddr', null, '', _t('邮箱地址'), _t('输入联系邮箱')
-    );
-    $form->addInput($emailAddr);
+    ));
+}
 
-    $friendLinks = new \Typecho\Widget\Helper\Form\Element\Textarea(
-        'friendLinks',
-        null,
-        '',
-        _t('友情链接'),
+/**
+ * 主题配置：其他设置
+ */
+function themeConfigOther($form): void
+{
+    $form->addInput(new \Typecho\Widget\Helper\Form\Element\Textarea(
+        'friendLinks', null, '', _t('友情链接'),
         _t('JSON 格式，示例：[{"name":"站点名","url":"https://...","avatar":"https://...","desc":"描述"}]')
-    );
-    $form->addInput($friendLinks);
+    ));
+    $form->addInput(new \Typecho\Widget\Helper\Form\Element\Select(
+        'language', array('zh_CN' => _t('简体中文'), 'en_US' => _t('English')), 'zh_CN', _t('界面语言'), _t('选择主题界面语言（需对应语言文件）')
+    ));
+    $form->addInput(new \Typecho\Widget\Helper\Form\Element\Textarea(
+        'customCSS', null, null, _t('自定义 CSS'), _t('在此输入自定义 CSS 代码')
+    ));
+}
 
-    $language = new \Typecho\Widget\Helper\Form\Element\Select(
-        'language',
-        array(
-            'zh_CN' => _t('简体中文'),
-            'en_US' => _t('English'),
-        ),
-        'zh_CN',
-        _t('界面语言'),
-        _t('选择主题界面语言（需对应语言文件）')
-    );
-    $form->addInput($language);
-
-    $primaryColor = new \Typecho\Widget\Helper\Form\Element\Text(
-        'primaryColor',
-        null,
-        '#6366f1',
-        _t('主题色'),
-        _t('输入主题色 HEX 值')
-    );
-    $form->addInput($primaryColor);
-
-    $customCSS = new \Typecho\Widget\Helper\Form\Element\Textarea(
-        'customCSS',
-        null,
-        null,
-        _t('自定义 CSS'),
-        _t('在此输入自定义 CSS 代码')
-    );
-    $form->addInput($customCSS);
+/**
+ * 主题配置入口
+ */
+function themeConfig($form): void
+{
+    themeConfigBasic($form);
+    themeConfigDisplay($form);
+    themeConfigCode($form);
+    themeConfigNav($form);
+    themeConfigSocial($form);
+    themeConfigOther($form);
 }
 
 function themeFields($layout)
