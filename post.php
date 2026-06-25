@@ -9,7 +9,7 @@ $options = getThemeOptions();
 ?>
 
 <div class="container">
-    <div class="content-area single-layout">
+    <div class="content-area single-layout<?php if ($options['showToc']): ?> has-toc<?php endif; ?>">
         <article class="post-full" id="post-<?php $this->cid(); ?>">
             <?php renderBreadcrumb($this); ?>
             <?php
