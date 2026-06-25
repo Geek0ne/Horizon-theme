@@ -37,7 +37,7 @@ $options = getThemeOptions();
                 <div class="footer-bottom">
                     <p>&copy; <?php echo date('Y'); ?> <?php $this->options->name(); ?>. Powered by <a href="https://typecho.org" target="_blank" rel="noopener">Typecho</a> & <a href="https://github.com/user/horizon" target="_blank" rel="noopener">Horizon</a></p>
                     <a href="#top" class="back-to-top" title="回到顶部">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+                        <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
                     </a>
                 </div>
             </div>
