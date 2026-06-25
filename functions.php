@@ -349,9 +349,13 @@ function getRelatedPosts($archive, $limit = 3)
         ->limit($limit));
 
     $result = [];
-    $siteUrl = \Widget\Options::alloc()->siteUrl;
+    $options = \Widget\Options::alloc();
+    $route = $options->routingTable['post'];
     foreach ($rows as $row) {
-        $row['permalink'] = $siteUrl . '/index.php/archives/' . $row['cid'] . '/';
+        $row['permalink'] = \Typecho\Common::url(
+            str_replace(array('%id%', '%slug%'), array($row['cid'], $row['slug']), $route['path']),
+            $options->siteUrl
+        );
         $result[] = $row;
     }
     $cache[$cid] = $result;
