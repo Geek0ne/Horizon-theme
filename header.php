@@ -55,6 +55,12 @@ if ($this->is('post') || $this->is('page')) {
     <meta name="twitter:title" content="<?php $this->title(); ?>">
     <meta name="twitter:description" content="<?php echo htmlspecialchars($metaDesc); ?>">
 
+    <?php /* Content Security Policy */ ?>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self';">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+
     <?php $this->head(); ?>
 
     <?php /* Google Fonts */ ?>
@@ -67,7 +73,18 @@ if ($this->is('post') || $this->is('page')) {
 
     <link rel="stylesheet" href="<?php $this->options->themeUrl('/assets/css/style.css'); ?>?v=3.3">
     <?php if ($options['showCodeHighlight']): ?>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/<?php echo $options['codeTheme']; ?>.min.css">
+    <?php
+    $highlightCssSri = [
+        'github-dark' => 'sha256-nyCNAiECsdDHrr/s2OQsp5l9XeY2ZJ0rMepjCT2AkBk=',
+        'github' => 'sha256-Oppd74ucMR5a5Dq96FxjEzGF7tTw2fZ/6ksAqDCM8GY=',
+        'monokai' => 'sha256-z/Hp8gg0qcikRwAYwtQ/djNqHcXLedqjCKb0szWTXEU=',
+        'dracula' => 'sha256-1GUXIXXTXUk/sWM+I3cAAivYSfoSMWR5CxaLgxissJA=',
+        'nord' => 'sha256-x0ENSVyLqyhUcr5YNqAsPYKAZeNOYbxQkCZ4BS/HuKk=',
+    ];
+    $codeTheme = $options['codeTheme'];
+    $sriAttr = isset($highlightCssSri[$codeTheme]) ? ' integrity="' . $highlightCssSri[$codeTheme] . '" crossorigin="anonymous"' : '';
+    ?>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/<?php echo $codeTheme; ?>.min.css"<?php echo $sriAttr; ?>>
     <?php endif; ?>
     <?php if (!empty($options['primaryColor']) && preg_match('/^#[0-9a-fA-F]{6}$/', $options['primaryColor']) && $options['primaryColor'] !== '#6366f1'): ?>
     <style>:root { --primary: <?php echo $options['primaryColor']; ?>; --primary-light: <?php echo $options['primaryColor']; ?>22; }</style>
