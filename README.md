@@ -158,6 +158,7 @@ typecho/
 | 分类 | `categories` | categories |
 | 标签 | `tags` | tags |
 | 归档 | `archives-page` | archives |
+| 友情链接 | `links` | links |
 
 ---
 
