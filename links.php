@@ -6,7 +6,8 @@
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 $this->need('header.php');
 $options = getThemeOptions();
-$linkData = !empty($options['friendLinks']) ? json_decode($options['friendLinks'], true) : [];
+$linkData = json_decode($options['friendLinks'] ?? '', true);
+if (!is_array($linkData)) $linkData = [];
 ?>
 
 <div class="container">
