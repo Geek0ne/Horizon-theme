@@ -37,3 +37,9 @@
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-8px); }
 }
+
+@media (prefers-reduced-motion: reduce) {
+    .tags-canvas .tag-float {
+        animation: none;
+    }
+}
