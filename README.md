@@ -195,12 +195,12 @@ typecho/
 
 ### 🟠 功能完整性
 
-- [ ] 实现 JSON-LD 结构化数据（WebSite / BlogPosting / BreadcrumbList）
-- [ ] 补充移动端汉堡菜单按钮 HTML 元素（CSS 已定义但缺少 HTML）
+- [x] ~~实现 JSON-LD 结构化数据（WebSite / BlogPosting / BreadcrumbList）~~ → 已移至待定
+- [x] ~~补充移动端汉堡菜单按钮 HTML 元素（CSS 已定义但缺少 HTML）~~
 - [ ] 注册 `links.php` 为可用页面模板
-- [ ] README 补充 `links` 模板使用说明
-- [ ] 添加 LICENSE 文件（README 引用但文件缺失）
-- [ ] 统一许可证声明（README 声明 MIT，style.css 声明 GPL）
+- [x] ~~README 补充 `links` 模板使用说明~~ → 已在安装章节说明
+- [x] ~~添加 LICENSE 文件（README 引用但文件缺失）~~
+- [x] ~~统一许可证声明（README 声明 MIT，style.css 声明 GPL）~~
 
 ### 🟡 国际化 (i18n)
 
@@ -239,7 +239,7 @@ typecho/
 - [ ] 合并重复的 `@media print` 块
 - [ ] `sidebar.php` 决定引入或删除
 - [ ] `getRelatedPosts()` 使用 Typecho 路由生成 permalink
-- [ ] `links.php` JSON 解析添加错误处理
+- [x] ~~`links.php` JSON 解析添加错误处理~~
 
 ### ⚫ 测试与文档
 
