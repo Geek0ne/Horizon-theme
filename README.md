@@ -230,7 +230,7 @@ typecho/
 
 - [x] ~~函数添加 PHPDoc 文档注释~~
 - [x] ~~添加 PHP 8.0+ 类型声明~~
-- [ ] `themeConfig()` 按功能分组拆分
+- [x] ~~`themeConfig()` 按功能分组拆分~~
 - [x] ~~`getReadTime()` 改为同时计算中英文~~
 - [x] ~~`sidebar.php` 决定引入或删除~~
 - [x] ~~`getRelatedPosts()` 使用 Typecho 路由生成 permalink~~
