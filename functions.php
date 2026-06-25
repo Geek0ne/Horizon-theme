@@ -393,8 +393,11 @@ function getWordCount($text)
 function getReadTime($text)
 {
     $text = preg_replace('/<[^>]+>/', '', $text);
-    $wordCount = preg_match_all('/[\x{4e00}-\x{9fa5}]/u', $text);
-    $minutes = max(1, ceil($wordCount / 400));
+    $chineseCount = preg_match_all('/[\x{4e00}-\x{9fa5}]/u', $text);
+    $englishText = preg_replace('/[\x{4e00}-\x{9fa5}]/u', '', $text);
+    $englishWords = str_word_count($englishText);
+    $totalWords = $chineseCount + $englishWords;
+    $minutes = max(1, ceil($totalWords / 400));
     return $minutes . ' 分钟';
 }
 
