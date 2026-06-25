@@ -203,12 +203,6 @@ typecho/
 - [x] ~~添加 LICENSE 文件（README 引用但文件缺失）~~
 - [x] ~~统一许可证声明（README 声明 MIT，style.css 声明 GPL）~~
 
-### 🟡 国际化 (i18n)
-
-- [ ] 模板中 30+ 处硬编码中文字符串改用 `hz_t()` 函数
-- [ ] JavaScript 中的字符串（复制、展开/收起代码等）通过 data 属性传递
-- [ ] 语言包 `en_US.php` 完善翻译内容
-
 ### 🟢 性能优化
 
 - [x] ~~`getThemeOptions()` 添加静态缓存~~
@@ -238,8 +232,6 @@ typecho/
 - [ ] 添加 PHP 8.0+ 类型声明
 - [ ] `themeConfig()` 按功能分组拆分
 - [ ] `getReadTime()` 改为同时计算中英文
-- [x] ~~CSS 注释语法错误修复~~
-- [x] ~~合并重复的 `@media print` 块~~
 - [ ] `sidebar.php` 决定引入或删除
 - [ ] `getRelatedPosts()` 使用 Typecho 路由生成 permalink
 - [x] ~~`links.php` JSON 解析添加错误处理~~
@@ -249,6 +241,12 @@ typecho/
 - [ ] 为 `functions.php` 工具函数编写 PHPUnit 单元测试
 - [ ] 添加 CHANGELOG 版本变更记录
 - [ ] 添加 CONTRIBUTING.md 贡献指南
+
+### 🟡 国际化 (i18n) — 低优先级
+
+- [ ] 模板中 30+ 处硬编码中文字符串改用 `hz_t()` 函数
+- [ ] JavaScript 中的字符串（复制、展开/收起代码等）通过 data 属性传递
+- [ ] 语言包 `en_US.php` 完善翻译内容
 
 ---
 
