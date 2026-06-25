@@ -190,6 +190,8 @@ typecho/
 - [x] ~~coverImage/excerpt 输出未转义~~
 - [x] ~~CDN 资源添加 SRI 校验 (`integrity` 属性)~~
 - [x] ~~添加 Content Security Policy (CSP) 支持~~
+- [x] ~~header/footer 模板未转义输出（logo/favicon/siteUrl/ogImage）~~
+- [x] ~~archive.php excerpt 输出未转义~~
 
 ### 🟠 功能完整性
 
