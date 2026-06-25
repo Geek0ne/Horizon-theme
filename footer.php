@@ -10,7 +10,7 @@ $options = getThemeOptions();
                     <div class="footer-col">
                         <div class="footer-brand">
                             <?php if (!empty($options['logo'])): ?>
-                            <img src="<?php echo $options['logo']; ?>" alt="<?php $this->options->name(); ?>" class="footer-logo">
+                            <img src="<?php echo htmlspecialchars($options['logo'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php $this->options->name(); ?>" class="footer-logo">
                             <?php else: ?>
                             <span class="footer-brand-name"><?php $this->options->name(); ?></span>
                             <?php endif; ?>

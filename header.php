@@ -24,7 +24,7 @@ if ($this->is('post') || $this->is('page')) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="<?php echo htmlspecialchars($metaDesc); ?>">
     <?php if (!empty($favicon)): ?>
-    <link rel="icon" href="<?php echo $favicon; ?>" type="image/x-icon">
+    <link rel="icon" href="<?php echo htmlspecialchars($favicon, ENT_QUOTES, 'UTF-8'); ?>" type="image/x-icon">
     <?php endif; ?>
 
     <?php /* Dynamic Title */ ?>
@@ -49,7 +49,7 @@ if ($this->is('post') || $this->is('page')) {
     <meta property="og:type" content="<?php echo $ogType; ?>">
     <meta property="og:site_name" content="<?php $this->options->name(); ?>">
     <?php if (!empty($ogImage)): ?>
-    <meta property="og:image" content="<?php echo $ogImage; ?>">
+    <meta property="og:image" content="<?php echo htmlspecialchars($ogImage, ENT_QUOTES, 'UTF-8'); ?>">
     <?php endif; ?>
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="<?php $this->title(); ?>">
@@ -101,16 +101,16 @@ if ($this->is('post') || $this->is('page')) {
         <header class="horizon-header">
             <div class="container">
                 <div class="header-inner">
-                    <a href="<?php echo $siteUrl; ?>" class="site-logo">
+                    <a href="<?php echo htmlspecialchars($siteUrl, ENT_QUOTES, 'UTF-8'); ?>" class="site-logo">
                         <?php if (!empty($logo)): ?>
-                        <img src="<?php echo $logo; ?>" alt="<?php $this->options->name(); ?>">
+                        <img src="<?php echo htmlspecialchars($logo, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php $this->options->name(); ?>">
                         <?php else: ?>
                         <span class="logo-text"><?php $this->options->name(); ?></span>
                         <?php endif; ?>
                     </a>
                     <nav class="main-nav">
                         <ul class="nav-list">
-                            <li><a href="<?php echo $siteUrl; ?>"<?php if ($this->is('index')) echo ' class="active"'; ?>>首页</a></li>
+                            <li><a href="<?php echo htmlspecialchars($siteUrl, ENT_QUOTES, 'UTF-8'); ?>"<?php if ($this->is('index')) echo ' class="active"'; ?>>首页</a></li>
                             <?php \Widget\Contents\Page\Rows::alloc()->to($pages); ?>
                             <?php while ($pages->next()): ?>
                             <li><a href="<?php $pages->permalink(); ?>"<?php if ($this->is('page', $pages->cid)) echo ' class="active"'; ?>><?php $pages->title(); ?></a></li>
@@ -132,7 +132,7 @@ if ($this->is('post') || $this->is('page')) {
 
         <div class="mobile-nav">
             <ul class="mobile-nav-list">
-                <li><a href="<?php echo $siteUrl; ?>">首页</a></li>
+                <li><a href="<?php echo htmlspecialchars($siteUrl, ENT_QUOTES, 'UTF-8'); ?>">首页</a></li>
                 <?php \Widget\Contents\Page\Rows::alloc()->to($mobilePages); ?>
                 <?php while ($mobilePages->next()): ?>
                 <li><a href="<?php $mobilePages->permalink(); ?>"><?php $mobilePages->title(); ?></a></li>
@@ -142,7 +142,7 @@ if ($this->is('post') || $this->is('page')) {
 
         <div class="search-overlay">
             <div class="search-container">
-                <form action="<?php echo $siteUrl; ?>" method="get" class="search-form">
+                <form action="<?php echo htmlspecialchars($siteUrl, ENT_QUOTES, 'UTF-8'); ?>" method="get" class="search-form">
                     <input type="text" name="s" placeholder="搜索文章..." class="search-input" autofocus>
                     <button type="submit" class="search-submit">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
