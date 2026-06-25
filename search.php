@@ -35,9 +35,9 @@ $this->need('header.php');
                     <?php
                     $excerpt = $this->fields->excerpt;
                     if (!empty($excerpt)) {
-                        echo $excerpt;
+                        echo htmlspecialchars($excerpt, ENT_QUOTES, 'UTF-8');
                     } else {
-                        echo getExcerpt($this->content, 160);
+                        echo htmlspecialchars(getExcerpt($this->content, 160), ENT_QUOTES, 'UTF-8');
                     }
                     ?>
                 </p>
@@ -61,7 +61,7 @@ $this->need('header.php');
 <?php $this->need('footer.php'); ?>
 <script>
 (function(){
-    var kw = '<?php echo addslashes($this->keywords()); ?>';
+    var kw = <?php echo json_encode($this->keywords()); ?>;
     if (!kw) return;
     var re = new RegExp('(' + kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
     document.querySelectorAll('.post-item-title a, .post-item-excerpt').forEach(function(el){
