@@ -211,7 +211,7 @@ typecho/
 - [x] ~~CDN 资源添加 `dns-prefetch` / `preconnect`~~
 - [x] ~~CSS 注释语法错误修复~~
 - [x] ~~合并重复的 `@media print` 块~~
-- [ ] CSS 压缩合并（需要构建工具）
+- [x] ~~CSS 压缩合并（需要构建工具）~~
 - [x] ~~`getRelatedPosts()` 添加缓存机制~~
 - [x] ~~Google Fonts 只加载实际使用的字重~~
 
