@@ -327,9 +327,12 @@ function renderBreadcrumb($archive)
 
 function getRelatedPosts($archive, $limit = 3)
 {
+    static $cache = [];
     $cid = $archive->cid;
+    if (isset($cache[$cid])) return $cache[$cid];
+
     $cats = $archive->categories;
-    if (empty($cats)) return [];
+    if (empty($cats)) { $cache[$cid] = []; return []; }
 
     $catMid = $cats[0]['mid'];
     $db = \Typecho\Db::get();
@@ -351,6 +354,7 @@ function getRelatedPosts($archive, $limit = 3)
         $row['permalink'] = $siteUrl . '/index.php/archives/' . $row['cid'] . '/';
         $result[] = $row;
     }
+    $cache[$cid] = $result;
     return $result;
 }
 
