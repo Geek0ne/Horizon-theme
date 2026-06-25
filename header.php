@@ -94,6 +94,7 @@ if ($this->is('post') || $this->is('page')) {
     <?php endif; ?>
 </head>
 <body>
+    <a href="#content" class="skip-link">跳转到内容</a>
     <div class="page-loader" id="pageLoader">
         <div class="loader-spinner"></div>
     </div>
@@ -155,4 +156,4 @@ if ($this->is('post') || $this->is('page')) {
             </div>
         </div>
 
-        <main class="horizon-main">
+        <main class="horizon-main" id="content">
