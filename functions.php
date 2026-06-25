@@ -252,6 +252,9 @@ function themeFields($layout)
 
 function getThemeOptions()
 {
+    static $cached = null;
+    if ($cached !== null) return $cached;
+
     $options = Helper::options()->custom;
     $defaults = array(
         'logo' => '',
@@ -280,9 +283,11 @@ function getThemeOptions()
         'customCSS' => '',
     );
     if (is_array($options)) {
-        return array_merge($defaults, $options);
+        $cached = array_merge($defaults, $options);
+    } else {
+        $cached = $defaults;
     }
-    return $defaults;
+    return $cached;
 }
 
 function hz_t($key, $fallback = '')
