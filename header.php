@@ -111,10 +111,10 @@ if ($this->is('post') || $this->is('page')) {
                     </a>
                     <nav class="main-nav">
                         <ul class="nav-list">
-                            <li><a href="<?php echo htmlspecialchars($siteUrl, ENT_QUOTES, 'UTF-8'); ?>"<?php if ($this->is('index')) echo ' class="active"'; ?>>首页</a></li>
+                            <li><a href="<?php echo htmlspecialchars($siteUrl, ENT_QUOTES, 'UTF-8'); ?>"<?php if ($this->is('index')) echo ' class="active" aria-current="page"'; ?>>首页</a></li>
                             <?php \Widget\Contents\Page\Rows::alloc()->to($pages); ?>
                             <?php while ($pages->next()): ?>
-                            <li><a href="<?php $pages->permalink(); ?>"<?php if ($this->is('page', $pages->cid)) echo ' class="active"'; ?>><?php $pages->title(); ?></a></li>
+                            <li><a href="<?php $pages->permalink(); ?>"<?php if ($this->is('page', $pages->cid)) echo ' class="active" aria-current="page"'; ?>><?php $pages->title(); ?></a></li>
                             <?php endwhile; ?>
                         </ul>
                     </nav>
