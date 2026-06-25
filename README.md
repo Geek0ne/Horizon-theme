@@ -180,6 +180,73 @@ typecho/
 | Safari | 14+ |
 | 移动端 Chrome / Safari | ✅ |
 
+## 🚧 待完成 (TODO)
+
+### 🔴 安全性
+
+- [x] ~~搜索页 JavaScript XSS 漏洞 (`addslashes` → `json_encode`)~~
+- [x] ~~面包屑导航输出未转义~~
+- [x] ~~相关文章标题未转义~~
+- [x] ~~coverImage/excerpt 输出未转义~~
+- [x] ~~CDN 资源添加 SRI 校验 (`integrity` 属性)~~
+- [x] ~~添加 Content Security Policy (CSP) 支持~~
+
+### 🟠 功能完整性
+
+- [ ] 实现 JSON-LD 结构化数据（WebSite / BlogPosting / BreadcrumbList）
+- [ ] 补充移动端汉堡菜单按钮 HTML 元素（CSS 已定义但缺少 HTML）
+- [ ] 注册 `links.php` 为可用页面模板
+- [ ] README 补充 `links` 模板使用说明
+- [ ] 添加 LICENSE 文件（README 引用但文件缺失）
+- [ ] 统一许可证声明（README 声明 MIT，style.css 声明 GPL）
+
+### 🟡 国际化 (i18n)
+
+- [ ] 模板中 30+ 处硬编码中文字符串改用 `hz_t()` 函数
+- [ ] JavaScript 中的字符串（复制、展开/收起代码等）通过 data 属性传递
+- [ ] 语言包 `en_US.php` 完善翻译内容
+
+### 🟢 性能优化
+
+- [ ] `getThemeOptions()` 添加静态缓存
+- [ ] JavaScript 添加 `defer` 属性
+- [ ] highlight.js 添加 `defer` 或按需加载
+- [x] ~~CDN 资源添加 `dns-prefetch` / `preconnect`~~
+- [ ] CSS 压缩合并（当前 2514 行未压缩）
+- [ ] `getRelatedPosts()` 添加缓存机制
+- [ ] Google Fonts 只加载实际使用的字重
+
+### 🔵 可访问性 (a11y)
+
+- [ ] 添加 "跳转到内容" 链接 (skip navigation)
+- [ ] 标签云动画适配 `prefers-reduced-motion`
+- [ ] 装饰性 SVG 添加 `aria-hidden="true"`
+- [ ] 导航链接添加 `aria-current="page"` 属性
+
+### 🟣 浏览器兼容性
+
+- [ ] CSS `:has()` 选择器兼容方案（Firefox < 121 不支持，影响 TOC 布局）
+
+### ⚪ 代码质量
+
+- [ ] 函数添加 PHPDoc 文档注释
+- [ ] 添加 PHP 8.0+ 类型声明
+- [ ] `themeConfig()` 按功能分组拆分
+- [ ] `getReadTime()` 改为同时计算中英文
+- [ ] CSS 注释语法错误修复
+- [ ] 合并重复的 `@media print` 块
+- [ ] `sidebar.php` 决定引入或删除
+- [ ] `getRelatedPosts()` 使用 Typecho 路由生成 permalink
+- [ ] `links.php` JSON 解析添加错误处理
+
+### ⚫ 测试与文档
+
+- [ ] 为 `functions.php` 工具函数编写 PHPUnit 单元测试
+- [ ] 添加 CHANGELOG 版本变更记录
+- [ ] 添加 CONTRIBUTING.md 贡献指南
+
+---
+
 ## 📜 许可证
 
 [MIT License](LICENSE)
