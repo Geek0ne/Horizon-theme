@@ -39,9 +39,9 @@ $this->need('header.php');
                     <?php
                     $excerpt = $this->fields->excerpt;
                     if (!empty($excerpt)) {
-                        echo $excerpt;
+                        echo htmlspecialchars($excerpt, ENT_QUOTES, 'UTF-8');
                     } else {
-                        echo getExcerpt($this->content, 160);
+                        echo htmlspecialchars(getExcerpt($this->content, 160), ENT_QUOTES, 'UTF-8');
                     }
                     ?>
                 </p>
