@@ -44,10 +44,9 @@ $options = getThemeOptions();
         </footer>
     </div>
 
-    <script src="<?php $this->options->themeUrl('/assets/js/main.js'); ?>?v=3.0"></script>
+    <script defer src="<?php $this->options->themeUrl('/assets/js/main.js'); ?>?v=3.0"></script>
     <?php if ($options['showCodeHighlight']): ?>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha256-g3pvpbDHNrUrveKythkPMF2j/J7UFoHbUyFQcFe1yEY=" crossorigin="anonymous"></script>
-    <script>hljs.highlightAll();</script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha256-g3pvpbDHNrUrveKythkPMF2j/J7UFoHbUyFQcFe1yEY=" crossorigin="anonymous" onload="hljs.highlightAll()"></script>
     <?php endif; ?>
     <?php $this->footer(); ?>
 </body>
