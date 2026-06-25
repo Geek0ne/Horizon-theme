@@ -215,16 +215,18 @@ typecho/
 - [x] ~~JavaScript 添加 `defer` 属性~~
 - [x] ~~highlight.js 添加 `defer` 或按需加载~~
 - [x] ~~CDN 资源添加 `dns-prefetch` / `preconnect`~~
-- [ ] CSS 压缩合并（当前 2514 行未压缩）
+- [x] ~~CSS 注释语法错误修复~~
+- [x] ~~合并重复的 `@media print` 块~~
+- [ ] CSS 压缩合并（需要构建工具）
 - [x] ~~`getRelatedPosts()` 添加缓存机制~~
 - [x] ~~Google Fonts 只加载实际使用的字重~~
 
 ### 🔵 可访问性 (a11y)
 
-- [ ] 添加 "跳转到内容" 链接 (skip navigation)
-- [ ] 标签云动画适配 `prefers-reduced-motion`
-- [ ] 装饰性 SVG 添加 `aria-hidden="true"`
-- [ ] 导航链接添加 `aria-current="page"` 属性
+- [x] ~~添加 "跳转到内容" 链接 (skip navigation)~~
+- [x] ~~标签云动画适配 `prefers-reduced-motion`~~
+- [x] ~~装饰性 SVG 添加 `aria-hidden="true"`~~
+- [x] ~~导航链接添加 `aria-current="page"` 属性~~
 
 ### 🟣 浏览器兼容性
 
@@ -236,8 +238,8 @@ typecho/
 - [ ] 添加 PHP 8.0+ 类型声明
 - [ ] `themeConfig()` 按功能分组拆分
 - [ ] `getReadTime()` 改为同时计算中英文
-- [ ] CSS 注释语法错误修复
-- [ ] 合并重复的 `@media print` 块
+- [x] ~~CSS 注释语法错误修复~~
+- [x] ~~合并重复的 `@media print` 块~~
 - [ ] `sidebar.php` 决定引入或删除
 - [ ] `getRelatedPosts()` 使用 Typecho 路由生成 permalink
 - [x] ~~`links.php` JSON 解析添加错误处理~~
