@@ -6,7 +6,6 @@
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 $this->need('header.php');
 ?>
-<link rel="stylesheet" href="<?php $this->options->themeUrl('/assets/css/tags.css'); ?>">
 
 <div class="container">
     <div class="content-area">
