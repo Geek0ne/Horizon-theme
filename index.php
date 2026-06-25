@@ -24,7 +24,7 @@ $this->need('header.php');
                 if (!empty($coverImage)):
                 ?>
                 <a href="<?php $this->permalink(); ?>" class="post-card-cover">
-                    <img src="<?php echo $coverImage; ?>" alt="<?php $this->title(); ?>" loading="lazy">
+                    <img src="<?php echo htmlspecialchars($coverImage, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php $this->title(); ?>" loading="lazy">
                 </a>
                 <?php endif; ?>
                 <div class="post-card-content">
@@ -41,9 +41,9 @@ $this->need('header.php');
                         <?php
                         $excerpt = $this->fields->excerpt;
                         if (!empty($excerpt)) {
-                            echo $excerpt;
+                            echo htmlspecialchars($excerpt, ENT_QUOTES, 'UTF-8');
                         } else {
-                            echo getExcerpt($this->content, 120);
+                            echo htmlspecialchars(getExcerpt($this->content, 120), ENT_QUOTES, 'UTF-8');
                         }
                         ?>
                     </p>

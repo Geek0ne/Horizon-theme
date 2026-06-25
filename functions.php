@@ -301,20 +301,20 @@ function renderBreadcrumb($archive)
 {
     $siteUrl = \Widget\Options::alloc()->siteUrl;
     echo '<nav class="breadcrumb" aria-label="breadcrumb"><ol>';
-    echo '<li><a href="' . $siteUrl . '">首页</a></li>';
+    echo '<li><a href="' . htmlspecialchars($siteUrl, ENT_QUOTES, 'UTF-8') . '">首页</a></li>';
 
     if ($archive->is('post')) {
         $cats = $archive->categories;
         if (!empty($cats)) {
-            echo '<li><a href="' . $cats[0]['permalink'] . '">' . $cats[0]['name'] . '</a></li>';
+            echo '<li><a href="' . htmlspecialchars($cats[0]['permalink'], ENT_QUOTES, 'UTF-8') . '">' . htmlspecialchars($cats[0]['name'], ENT_QUOTES, 'UTF-8') . '</a></li>';
         }
-        echo '<li class="current">' . $archive->title . '</li>';
+        echo '<li class="current">' . htmlspecialchars($archive->title, ENT_QUOTES, 'UTF-8') . '</li>';
     } elseif ($archive->is('category')) {
-        echo '<li class="current">' . $archive->name . '</li>';
+        echo '<li class="current">' . htmlspecialchars($archive->name, ENT_QUOTES, 'UTF-8') . '</li>';
     } elseif ($archive->is('tag')) {
-        echo '<li class="current">' . $archive->name . '</li>';
+        echo '<li class="current">' . htmlspecialchars($archive->name, ENT_QUOTES, 'UTF-8') . '</li>';
     } elseif ($archive->is('page')) {
-        echo '<li class="current">' . $archive->title . '</li>';
+        echo '<li class="current">' . htmlspecialchars($archive->title, ENT_QUOTES, 'UTF-8') . '</li>';
     }
 
     echo '</ol></nav>';

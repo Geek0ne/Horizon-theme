@@ -17,7 +17,7 @@ $options = getThemeOptions();
             if (!empty($coverImage)):
             ?>
             <div class="post-cover">
-                <img src="<?php echo $coverImage; ?>" alt="<?php $this->title(); ?>">
+                <img src="<?php echo htmlspecialchars($coverImage, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php $this->title(); ?>">
             </div>
             <?php endif; ?>
 
@@ -108,8 +108,8 @@ $options = getThemeOptions();
                 <h3 class="related-title">相关文章</h3>
                 <div class="related-grid">
                     <?php foreach ($related as $r): ?>
-                    <a href="<?php echo $r['permalink']; ?>" class="related-card">
-                        <div class="related-card-title"><?php echo $r['title']; ?></div>
+                        <a href="<?php echo htmlspecialchars($r['permalink'], ENT_QUOTES, 'UTF-8'); ?>" class="related-card">
+                        <div class="related-card-title"><?php echo htmlspecialchars($r['title'], ENT_QUOTES, 'UTF-8'); ?></div>
                         <time class="related-card-date"><?php echo date('Y-m-d', $r['created']); ?></time>
                     </a>
                     <?php endforeach; ?>
