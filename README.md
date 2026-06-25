@@ -198,8 +198,8 @@ typecho/
 
 - [x] ~~实现 JSON-LD 结构化数据（WebSite / BlogPosting / BreadcrumbList）~~ → 已移至待定
 - [x] ~~补充移动端汉堡菜单按钮 HTML 元素（CSS 已定义但缺少 HTML）~~
-- [ ] 注册 `links.php` 为可用页面模板
-- [x] ~~README 补充 `links` 模板使用说明~~ → 已在安装章节说明
+- [x] ~~注册 `links.php` 为可用页面模板~~ → Typecho 自动识别，已在 README 补充说明
+- [x] ~~README 补充 `links` 模板使用说明~~
 - [x] ~~添加 LICENSE 文件（README 引用但文件缺失）~~
 - [x] ~~统一许可证声明（README 声明 MIT，style.css 声明 GPL）~~
 
@@ -211,13 +211,13 @@ typecho/
 
 ### 🟢 性能优化
 
-- [ ] `getThemeOptions()` 添加静态缓存
-- [ ] JavaScript 添加 `defer` 属性
-- [ ] highlight.js 添加 `defer` 或按需加载
+- [x] ~~`getThemeOptions()` 添加静态缓存~~
+- [x] ~~JavaScript 添加 `defer` 属性~~
+- [x] ~~highlight.js 添加 `defer` 或按需加载~~
 - [x] ~~CDN 资源添加 `dns-prefetch` / `preconnect`~~
 - [ ] CSS 压缩合并（当前 2514 行未压缩）
-- [ ] `getRelatedPosts()` 添加缓存机制
-- [ ] Google Fonts 只加载实际使用的字重
+- [x] ~~`getRelatedPosts()` 添加缓存机制~~
+- [x] ~~Google Fonts 只加载实际使用的字重~~
 
 ### 🔵 可访问性 (a11y)
 
