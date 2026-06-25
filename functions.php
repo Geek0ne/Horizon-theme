@@ -250,7 +250,12 @@ function themeFields($layout)
     $layout->addItem($sticky);
 }
 
-function getThemeOptions()
+/**
+ * 获取主题配置选项（带静态缓存）
+ *
+ * @return array 主题配置数组
+ */
+function getThemeOptions(): array
 {
     static $cached = null;
     if ($cached !== null) return $cached;
@@ -290,7 +295,14 @@ function getThemeOptions()
     return $cached;
 }
 
-function hz_t($key, $fallback = '')
+/**
+ * 国际化翻译函数
+ *
+ * @param string $key 翻译键名
+ * @param string $fallback 未找到翻译时的回退文本
+ * @return string 翻译后的文本
+ */
+function hz_t(string $key, string $fallback = ''): string
 {
     static $lang = null;
     if ($lang === null) {
@@ -302,7 +314,13 @@ function hz_t($key, $fallback = '')
     return isset($lang[$key]) ? $lang[$key] : ($fallback ?: $key);
 }
 
-function renderBreadcrumb($archive)
+/**
+ * 渲染面包屑导航
+ *
+ * @param object $archive 当前归档对象
+ * @return void
+ */
+function renderBreadcrumb(object $archive): void
 {
     $siteUrl = \Widget\Options::alloc()->siteUrl;
     echo '<nav class="breadcrumb" aria-label="breadcrumb"><ol>';
@@ -325,7 +343,14 @@ function renderBreadcrumb($archive)
     echo '</ol></nav>';
 }
 
-function getRelatedPosts($archive, $limit = 3)
+/**
+ * 获取相关文章（带静态缓存）
+ *
+ * @param object $archive 当前文章归档对象
+ * @param int $limit 返回数量限制
+ * @return array 相关文章数组
+ */
+function getRelatedPosts(object $archive, int $limit = 3): array
 {
     static $cache = [];
     $cid = $archive->cid;
@@ -362,7 +387,13 @@ function getRelatedPosts($archive, $limit = 3)
     return $result;
 }
 
-function renderSocialLinks($options)
+/**
+ * 渲染社交链接
+ *
+ * @param array $options 主题配置选项
+ * @return void
+ */
+function renderSocialLinks(array $options): void
 {
     $links = [];
     $github = '<a href="' . htmlspecialchars($options['githubUrl']) . '" target="_blank" rel="noopener" title="GitHub"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.1.8-.26.8-.58v-2.23c-3.34.73-4.03-1.42-4.03-1.42-.55-1.39-1.33-1.76-1.33-1.76-1.09-.75.08-.73.08-.73 1.21.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49 1 .1-.78.42-1.31.76-1.6-2.67-.31-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23.96-.27 1.98-.4 3-.4 1.02 0 2.05.14 3 .4 2.29-1.55 3.3-1.23 3.3-1.23.65 1.65.24 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.62-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.19.69.8.58C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg></a>';
@@ -382,7 +413,13 @@ function renderSocialLinks($options)
     }
 }
 
-function getWordCount($text)
+/**
+ * 获取文本字数统计
+ *
+ * @param string $text 原始文本（含 HTML）
+ * @return int|string 字数（超过 10000 显示为 x.x 万）
+ */
+function getWordCount(string $text): int|string
 {
     $text = preg_replace('/<[^>]+>/', '', $text);
     $text = preg_replace('/\s+/', '', $text);
@@ -394,7 +431,13 @@ function getWordCount($text)
     return $wordCount;
 }
 
-function getReadTime($text)
+/**
+ * 获取预估阅读时间（支持中英文混合）
+ *
+ * @param string $text 原始文本（含 HTML）
+ * @return string 阅读时间（如 "3 分钟"）
+ */
+function getReadTime(string $text): string
 {
     $text = preg_replace('/<[^>]+>/', '', $text);
     $chineseCount = preg_match_all('/[\x{4e00}-\x{9fa5}]/u', $text);
@@ -405,7 +448,14 @@ function getReadTime($text)
     return $minutes . ' 分钟';
 }
 
-function getExcerpt($text, $length = 120)
+/**
+ * 获取文本摘要
+ *
+ * @param string $text 原始文本（含 HTML）
+ * @param int $length 摘要长度限制
+ * @return string 截断后的纯文本摘要
+ */
+function getExcerpt(string $text, int $length = 120): string
 {
     $text = preg_replace('/<[^>]+>/', '', $text);
     $text = str_replace(array("\n", "\r", "\t"), ' ', $text);
