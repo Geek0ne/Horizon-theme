@@ -1831,7 +1831,6 @@ ul, ol { list-style: none; }
 }
 
 /* ========================================
-/* ========================================
    Utility
    ======================================== */
 .visually-hidden {
@@ -2187,11 +2186,7 @@ ul, ol { list-style: none; }
 @media print {
     .breadcrumb,
     .related-posts,
-    .post-copyright {
-        display: none !important;
-    }
-}
-@media print {
+    .post-copyright,
     .horizon-header,
     .horizon-footer,
     .post-toc,
