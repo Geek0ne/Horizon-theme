@@ -58,19 +58,17 @@ if ($this->is('post') || $this->is('page')) {
     <meta name="twitter:description" content="<?php echo htmlspecialchars($metaDesc); ?>">
 
     <?php /* Content Security Policy */ ?>
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self';">
-    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.bootcdn.net; style-src 'self' 'unsafe-inline' https://cdn.bootcdn.net https://fonts.loli.net; font-src 'self' https://fonts.loli.net; img-src 'self' data: https:; connect-src 'self';">
+    <link rel="dns-prefetch" href="https://cdn.bootcdn.net">
+    <link rel="dns-prefetch" href="https://fonts.loli.net">
 
     <?php $this->head(); ?>
 
-    <?php /* Google Fonts */ ?>
+    <?php /* Google Fonts (使用国内镜像) */ ?>
     <?php if ($options['loadGoogleFonts'] == '1'): ?>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+    <link rel="preconnect" href="https://fonts.loli.net">
+    <link rel="preload" as="style" href="https://fonts.loli.net/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
     <?php endif; ?>
 
     <link rel="stylesheet" href="<?php $this->options->themeUrl('/assets/css/horizon.min.css'); ?>?v=3.4">
@@ -86,7 +84,7 @@ if ($this->is('post') || $this->is('page')) {
     $codeTheme = $options['codeTheme'];
     $sriAttr = isset($highlightCssSri[$codeTheme]) ? ' integrity="' . $highlightCssSri[$codeTheme] . '" crossorigin="anonymous"' : '';
     ?>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/<?php echo $codeTheme; ?>.min.css"<?php echo $sriAttr; ?>>
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/highlight.js/11.9.0/styles/<?php echo $codeTheme; ?>.min.css"<?php echo $sriAttr; ?>>
     <?php endif; ?>
     <?php if (!empty($options['primaryColor']) && preg_match('/^#[0-9a-fA-F]{6}$/', $options['primaryColor']) && $options['primaryColor'] !== '#6366f1'): ?>
     <style>:root { --primary: <?php echo $options['primaryColor']; ?>; --primary-light: <?php echo $options['primaryColor']; ?>22; }</style>
