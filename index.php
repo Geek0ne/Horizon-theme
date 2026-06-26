@@ -1,7 +1,12 @@
 <?php
 /**
- * Horizon Theme for Typecho
- * 首页模板
+ * 一个现代化、精美、多功能的 Typecho 主题
+ *
+ * @package Horizon
+ * @author MiMoCode
+ * @link https://github.com/Geek0ne/Horizon-theme
+ * @version 1.3.0
+ * @since 1.0.0
  */
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 $this->need('header.php');
