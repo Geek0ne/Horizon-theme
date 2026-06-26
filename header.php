@@ -43,16 +43,18 @@ if ($this->is('post') || $this->is('page')) {
     <?php endif; ?>
 
     <?php /* Open Graph */ ?>
-    <meta property="og:title" content="<?php $this->title(); ?>">
+    <?php $ogTitle = isset($this->row['title']) ? $this->row['title'] : ''; ?>
+    <?php $ogPermalink = $this->is('post') || $this->is('page') ? $this->permalink() : $this->options->siteUrl; ?>
+    <meta property="og:title" content="<?php echo htmlspecialchars($ogTitle ?: $this->options->name(), ENT_QUOTES, 'UTF-8'); ?>">
     <meta property="og:description" content="<?php echo htmlspecialchars($metaDesc); ?>">
-    <meta property="og:url" content="<?php $this->permalink(); ?>">
+    <meta property="og:url" content="<?php echo htmlspecialchars($ogPermalink, ENT_QUOTES, 'UTF-8'); ?>">
     <meta property="og:type" content="<?php echo $ogType; ?>">
     <meta property="og:site_name" content="<?php $this->options->name(); ?>">
     <?php if (!empty($ogImage)): ?>
     <meta property="og:image" content="<?php echo htmlspecialchars($ogImage, ENT_QUOTES, 'UTF-8'); ?>">
     <?php endif; ?>
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="<?php $this->title(); ?>">
+    <meta name="twitter:title" content="<?php echo htmlspecialchars($ogTitle ?: $this->options->name(), ENT_QUOTES, 'UTF-8'); ?>">
     <meta name="twitter:description" content="<?php echo htmlspecialchars($metaDesc); ?>">
 
     <?php /* Content Security Policy */ ?>
