@@ -1,0 +1,9 @@
+{
+    "name": "geek0ne/horizon-theme",
+    "description": "A modern Typecho blog theme",
+    "type": "typecho-theme",
+    "license": "MIT",
+    "require-dev": {
+        "phpunit/phpunit": "^10.0"
+    }
+}
