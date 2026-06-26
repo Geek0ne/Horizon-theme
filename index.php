@@ -3,9 +3,9 @@
  * 一个现代化、精美、多功能的 Typecho 主题
  *
  * @package Horizon
- * @author MiMoCode
+ * @author Geek0ne
  * @link https://github.com/Geek0ne/Horizon-theme
- * @version 1.3.0
+ * @version 1.3.2
  * @since 1.0.0
  */
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;

@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/), and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.3.2] - 2025-06-26
+
+### Fixed
+- 修复搜索无结果时的 500 错误
+- 修复主题信息在后台不显示的问题
+- 作者信息统一为 Geek0ne
+
 ## [1.3.0] - 2025-06-26
 
 ### Added
