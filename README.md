@@ -238,9 +238,9 @@ typecho/
 
 ### ⚫ 测试与文档
 
-- [ ] 为 `functions.php` 工具函数编写 PHPUnit 单元测试
-- [ ] 添加 CHANGELOG 版本变更记录
-- [ ] 添加 CONTRIBUTING.md 贡献指南
+- [x] ~~为 `functions.php` 工具函数编写 PHPUnit 单元测试~~
+- [x] ~~添加 CHANGELOG 版本变更记录~~
+- [x] ~~添加 CONTRIBUTING.md 贡献指南~~
 
 ### 🟡 国际化 (i18n) — 低优先级
 
