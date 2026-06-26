@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/), and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.3.0] - 2025-06-26
+
+### Added
+- PHPUnit 测试框架和工具函数测试用例
+- CHANGELOG 版本变更记录
+- CONTRIBUTING.md 贡献指南
+- composer.json 依赖声明
+- .gitignore 文件
+
+### Refactored
+- themeConfig() 按功能拆分为 6 个子函数
+- 所有函数添加 PHPDoc 文档注释和类型声明
+
 ## [1.1.0] - 2025-06-26
 
 ### Added

@@ -8,7 +8,7 @@
   <img src="https://img.shields.io/badge/Typecho-1.3+-0a73c0?style=flat-square&logo=typecho&logoColor=white" alt="Typecho">
   <img src="https://img.shields.io/badge/PHP-8.0+-777bb4?style=flat-square&logo=php&logoColor=white" alt="PHP">
   <img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="License">
-  <img src="https://img.shields.io/badge/Version-1.0-blueviolet?style=flat-square" alt="Version">
+  <img src="https://img.shields.io/badge/Version-1.3-blueviolet?style=flat-square" alt="Version">
 </p>
 
 <p align="center">
