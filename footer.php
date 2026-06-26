@@ -46,7 +46,7 @@ $options = getThemeOptions();
 
     <script defer src="<?php $this->options->themeUrl('/assets/js/main.js'); ?>?v=3.0"></script>
     <?php if ($options['showCodeHighlight']): ?>
-    <script defer src="https://cdn.bootcdn.net/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha256-g3pvpbDHNrUrveKythkPMF2j/J7UFoHbUyFQcFe1yEY=" crossorigin="anonymous" onload="hljs.highlightAll()"></script>
+    <script defer src="<?php $this->options->themeUrl('/assets/vendor/highlight/highlight.min.js'); ?>" onload="hljs.highlightAll()"></script>
     <?php endif; ?>
     <?php $this->footer(); ?>
 </body>

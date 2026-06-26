@@ -850,13 +850,8 @@ ul, ol { list-style: none; }
 .markdown-body h1 { font-size: 1.8rem; }
 .markdown-body h2 {
     font-size: 1.5rem;
-    padding-bottom: 12px;
-    border-bottom: 2px solid var(--border);
-    background: var(--primary-gradient-soft);
-    display: inline-block;
-    width: 100%;
-    border-radius: 0;
     padding-bottom: 10px;
+    border-bottom: 2px solid var(--border);
 }
 .markdown-body h3 { font-size: 1.3rem; }
 .markdown-body h4 { font-size: 1.15rem; }
@@ -1181,8 +1176,9 @@ ul, ol { list-style: none; }
 }
 
 .markdown-body del {
-    color: var(--text-tertiary);
-    text-decoration-color: var(--border);
+    color: inherit;
+    text-decoration: line-through;
+    text-decoration-color: var(--text-secondary);
 }
 
 .markdown-body input[type="checkbox"] {

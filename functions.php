@@ -189,7 +189,7 @@ function getThemeOptions(): array
         'showCategories' => '1',
         'showTags' => '1',
         'showArchives' => '1',
-        'loadGoogleFonts' => '1',
+        'loadGoogleFonts' => '0',
         'showCopyright' => '0',
         'githubUrl' => '',
         'weiboUrl' => '',

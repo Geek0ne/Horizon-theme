@@ -58,9 +58,7 @@ if ($this->is('post') || $this->is('page')) {
     <meta name="twitter:description" content="<?php echo htmlspecialchars($metaDesc); ?>">
 
     <?php /* Content Security Policy */ ?>
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.bootcdn.net; style-src 'self' 'unsafe-inline' https://cdn.bootcdn.net https://fonts.loli.net; font-src 'self' https://fonts.loli.net; img-src 'self' data: https:; connect-src 'self';">
-    <link rel="dns-prefetch" href="https://cdn.bootcdn.net">
-    <link rel="dns-prefetch" href="https://fonts.loli.net">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https:; connect-src 'self';">
 
     <?php $this->head(); ?>
 
@@ -73,18 +71,7 @@ if ($this->is('post') || $this->is('page')) {
 
     <link rel="stylesheet" href="<?php $this->options->themeUrl('/assets/css/horizon.min.css'); ?>?v=3.4">
     <?php if ($options['showCodeHighlight']): ?>
-    <?php
-    $highlightCssSri = [
-        'github-dark' => 'sha256-nyCNAiECsdDHrr/s2OQsp5l9XeY2ZJ0rMepjCT2AkBk=',
-        'github' => 'sha256-Oppd74ucMR5a5Dq96FxjEzGF7tTw2fZ/6ksAqDCM8GY=',
-        'monokai' => 'sha256-z/Hp8gg0qcikRwAYwtQ/djNqHcXLedqjCKb0szWTXEU=',
-        'dracula' => 'sha256-1GUXIXXTXUk/sWM+I3cAAivYSfoSMWR5CxaLgxissJA=',
-        'nord' => 'sha256-x0ENSVyLqyhUcr5YNqAsPYKAZeNOYbxQkCZ4BS/HuKk=',
-    ];
-    $codeTheme = $options['codeTheme'];
-    $sriAttr = isset($highlightCssSri[$codeTheme]) ? ' integrity="' . $highlightCssSri[$codeTheme] . '" crossorigin="anonymous"' : '';
-    ?>
-    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/highlight.js/11.9.0/styles/<?php echo $codeTheme; ?>.min.css"<?php echo $sriAttr; ?>>
+    <link rel="stylesheet" href="<?php $this->options->themeUrl('/assets/vendor/highlight/' . $options['codeTheme'] . '.min.css'); ?>">
     <?php endif; ?>
     <?php if (!empty($options['primaryColor']) && preg_match('/^#[0-9a-fA-F]{6}$/', $options['primaryColor']) && $options['primaryColor'] !== '#6366f1'): ?>
     <style>:root { --primary: <?php echo $options['primaryColor']; ?>; --primary-light: <?php echo $options['primaryColor']; ?>22; }</style>
@@ -125,9 +112,6 @@ if ($this->is('post') || $this->is('page')) {
                         <button class="theme-toggle" aria-label="切换主题">
                             <svg aria-hidden="true" class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
                             <svg aria-hidden="true" class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-                        </button>
-                        <button class="mobile-menu-toggle" aria-label="菜单">
-                            <span></span><span></span><span></span>
                         </button>
                     </div>
                 </div>
